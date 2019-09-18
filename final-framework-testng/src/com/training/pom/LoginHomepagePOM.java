@@ -16,7 +16,7 @@ public class LoginHomepagePOM{
 	@FindBy(xpath="//a[contains(text(),'Homepage')]")
 	private WebElement AdminLogin;
 	
-	@FindBy(xpath="//a[@class='dropdown-toggle']//img[@class='img-circle']"); 
+	@FindBy(xpath="//a[@class='dropdown-toggle']//img[@class='img-circle']")
 	private WebElement AdminLogin1;
 	
 	
