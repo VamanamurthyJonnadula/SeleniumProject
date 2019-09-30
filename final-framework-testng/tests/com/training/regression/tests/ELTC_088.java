@@ -1,4 +1,5 @@
-package com.training.sanity.tests;
+
+package com.training.regression.tests;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +19,7 @@ import com.training.pom.AssignmentsPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class ELTC_043 {
+public class ELTC_088 {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -56,7 +57,7 @@ public class ELTC_043 {
 		driver.quit();
 	}
 	@Test
-	public void ELTC_043() {
+	public void ELTC_088() {
 		LoginPOM.sendUserName("admin");
 		LoginPOM.sendPassword("admin@123");
 		LoginPOM.clickLoginBtn(); 
@@ -67,7 +68,7 @@ public class ELTC_043 {
 		AssignmentsPOM.AssignName("Test case43");
 		AssignmentsPOM.clickValidateSubmitbtn();
 		
-		screenShot.captureScreenShot("TC_43");
+		screenShot.captureScreenShot("TC_88");
 		
 		//Assert.assertEquals(AssignmentsPOM.getDirectoryCreated(), "Directory created");
 		Assert.assertTrue(AssignmentsPOM.getDirectoryCreated());

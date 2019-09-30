@@ -1,4 +1,5 @@
-package com.training.sanity.tests;
+
+package com.training.regression.tests;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,17 +15,16 @@ import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginPOM;
 import com.training.pom.CoursescatalogSearchPOM;
-import com.training.pom.AssignmentsPOM;
+
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class ELTC_043 {
+public class ELTC_087 {
 
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM LoginPOM;
 	private CoursescatalogSearchPOM CoursescatalogSearchPOM;
-	private AssignmentsPOM AssignmentsPOM;
 	
 	
 	private static Properties properties;
@@ -42,7 +42,6 @@ public class ELTC_043 {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		LoginPOM = new LoginPOM(driver); 
 		CoursescatalogSearchPOM = new CoursescatalogSearchPOM(driver);
-		AssignmentsPOM = new AssignmentsPOM(driver);
 		
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
@@ -56,21 +55,21 @@ public class ELTC_043 {
 		driver.quit();
 	}
 	@Test
-	public void ELTC_043() {
+	public void ELTC_087() {
 		LoginPOM.sendUserName("admin");
 		LoginPOM.sendPassword("admin@123");
 		LoginPOM.clickLoginBtn(); 
 		CoursescatalogSearchPOM.mycourselink();
 		CoursescatalogSearchPOM.Userportallink();
-		AssignmentsPOM.clickAssignmentslink();
-		AssignmentsPOM.clickCreateAssignlink();
-		AssignmentsPOM.AssignName("Test case43");
-		AssignmentsPOM.clickValidateSubmitbtn();
+		CoursescatalogSearchPOM.Courselink();
+		CoursescatalogSearchPOM.AddAssessments();
+		CoursescatalogSearchPOM.Categoryname("IBM0819SP005");
+		CoursescatalogSearchPOM.weight("50");
+		CoursescatalogSearchPOM.clickAddcategory();
 		
-		screenShot.captureScreenShot("TC_43");
+		screenShot.captureScreenShot("TC_87");
 		
-		//Assert.assertEquals(AssignmentsPOM.getDirectoryCreated(), "Directory created");
-		Assert.assertTrue(AssignmentsPOM.getDirectoryCreated());
-							
+		Assert.assertTrue(CoursescatalogSearchPOM.Totalweight());
+						
 	}
 }
